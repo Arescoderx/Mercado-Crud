@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { BsShop } from "react-icons/bs";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/UserContext";
 const BarraNavegacao = () => {
-  const usuarioNome = "Visitante"
+  const {usuarioNome, logout} = useContext(AuthContext);
   return (
     <div>
       <Navbar expand="lg" bg="success" data-bs-theme="dark">
@@ -29,7 +31,7 @@ const BarraNavegacao = () => {
                 </>
               ) : (
                 <>
-                  <Button variant="danger" href="/login">Sair</Button>
+                  <Button variant="danger" href="/login" onClick={logout}>Sair</Button>
                 </>
               )}
             </Nav>
